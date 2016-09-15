@@ -19,6 +19,7 @@ function [output_struct] = simulate_sensitivity(protocolFlag, sTissueParameters,
     %% Calculate signal variation
     
         if strcmp(sParam,'b1')
+            initialParam = 1;
             deltaParamFrac =1+deltaParamPerc/100;
 
             load(sMeasurementParameters)
@@ -27,6 +28,7 @@ function [output_struct] = simulate_sensitivity(protocolFlag, sTissueParameters,
             
             [sled_flips sled_offsets sled_pulse_durations sled_trs sled_excite_flips] = create_protocol_sled(protocol);
         elseif strcmp(sParam,'b1t1')
+            initialParam = 1;
             deltaParamFrac =1+deltaParamPerc/100;
 
             load(sMeasurementParameters)
@@ -40,7 +42,7 @@ function [output_struct] = simulate_sensitivity(protocolFlag, sTissueParameters,
         else
             load(sMeasurementParameters)
 
-            modify_tissue_param(sTissueParameters, sParam, deltaParamPerc)
+            initialParam = modify_tissue_param(sTissueParameters, sParam, deltaParamPerc);
             sTissueParameters = ['temp/', sTissueParameters, '_', sParam, '_deltaPerc_', num2str(deltaParamPerc),'.mat'];
 
             [sled_flips sled_offsets sled_pulse_durations sled_trs sled_excite_flips] = create_protocol_sled(protocol);
@@ -53,7 +55,7 @@ function [output_struct] = simulate_sensitivity(protocolFlag, sTissueParameters,
     
     %%
     
-    output_struct.sensitivity = (output_struct.deltaMeas-output_struct.trueMeas)./(0.1220*(deltaParamPerc/100));
+    output_struct.sensitivity = (output_struct.deltaMeas-output_struct.trueMeas)./(initialParam*(deltaParamPerc/100));
      
 end
 
