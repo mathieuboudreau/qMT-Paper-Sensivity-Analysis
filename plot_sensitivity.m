@@ -23,7 +23,7 @@ function [] = plot_sensitivity(protocol, sensitivity_struct, sParam, deltaParamP
         plot(linspace(gridlines(ii),gridlines(ii),80),linspace(lims(1),lims(2),80),':','Color',[50 50 50]./256,'LineWidth',1)
         hold on
     end
-    
+    ylim(lims);
     %title(['Sensitivity of MT signal (\Delta', sParam, ' = ' , num2str(deltaParamPerc),'%)'])
 end
  
