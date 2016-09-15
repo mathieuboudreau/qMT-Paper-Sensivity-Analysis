@@ -21,7 +21,9 @@ close all
 
 my_path;
 
-startup;                    
+mkdir('temp')
+
+%startup;                    
 
 set(0, 'DefaultAxesBox', 'on', 'DefaultAxesLineWidth', 6);
 set(0, 'DefaultAxesFontSize', 30, 'DefaultAxesFontWeight', 'bold');
