@@ -1,0 +1,1 @@
+addpath(genpath('/Users/mathieuboudreau/Work/mboudrea-phd-code/MATLAB/MyCollections/b1t1qmt_simu'))
