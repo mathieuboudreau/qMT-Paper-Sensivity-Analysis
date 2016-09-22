@@ -58,7 +58,9 @@ load(sMeasurementParameters)
 plot_sensitivity(protocol,sensitivity_F{1},'F',deltaFPerc_range(1))
 
 my_ylabel('{|s_{\fontsize{24}F}|}')
-
+axis square
+xlabel([])
+ylabel([])
 %axis([10^2 10^6 -1.5 0.01])
 
 %%
@@ -77,7 +79,9 @@ end
 load(sMeasurementParameters)
 plot_sensitivity(protocol,sensitivity_kf{1},'k_f',deltaFPerc_range(1))
 my_ylabel('{|s_{\fontsize{24}kf}|}')
-
+axis square
+xlabel([])
+ylabel([])
 %axis([10^2 10^6 -1.5 0.01])
 
 
@@ -99,7 +103,9 @@ load(sMeasurementParameters)
 
 plot_sensitivity(protocol,sensitivity_b1{1},'b__1',deltab1Perc_range(1))
 my_ylabel('{|s_{\fontsize{24}B1}^{\fontsize{16}IR}|}')
-
+axis square
+xlabel([])
+ylabel([])
 
 
 %%
@@ -123,6 +129,9 @@ my_ylabel('{|s_{\fontsize{24}B1}^{\fontsize{16}VFA}|}')
     legend_cell{1}='MT FA = 142^{o}';
     legend_cell{2}='MT FA = 426^{o}';
     my_legend(legend_cell)
+axis square
+xlabel([])
+ylabel([])
 %%
 %
 
@@ -140,7 +149,9 @@ load(sMeasurementParameters)
 
 plot_sensitivity(protocol,sensitivity_t2f{1},'T__2__f',deltat2fPerc_range(1))
 my_ylabel('{|s_{\fontsize{24}T2f}|}')
-
+axis square
+xlabel([])
+ylabel([])
 %%
 %
 
@@ -158,5 +169,8 @@ load(sMeasurementParameters)
 
 plot_sensitivity(protocol,sensitivity_t2r{1},'T__2__r',deltat2rPerc_range(1))
 my_ylabel('{|s_{\fontsize{24}T2r}|}')
-
-
+axis square
+ax = gca;
+ax.YAxis.Exponent = 3;
+xlabel([])
+ylabel([])
